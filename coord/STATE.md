@@ -1,6 +1,6 @@
 # State
 
-Last updated: 2026-05-25T18:43:39Z
+Last updated: 2026-05-25T21:21:27Z
 
 Protocol: agent-filesystem-collaboration v0.2.6 local install, adapted from
 `/Users/klopezva/GitHubProjects/agent-filesystem-collaboration/templates/coord/AGENTS_PROTOCOL.md`.
@@ -78,10 +78,22 @@ folders through `bootstrap-lit-review.sh`.
 - `T-012`: Project-boundary / monitor-only rule.
   - Lead: codex.
   - Reviewer: claude.
-  - Status: **review-requested**. Canonical protocol v0.2.6 is pushed at
+  - Status: **closed / superseded-by-T-013-review-cleanup**. Canonical
+    protocol v0.2.6 is pushed at
     `abd36eb`; local protocol install and Codex coordination skill now state
     that other repositories are monitor-only unless Kristian explicitly switches
-    the session or names cross-repo write paths.
+    the session or names cross-repo write paths. The boundary rule itself is
+    installed; T-013 now owns the follow-up cleanup for the task-ID collision
+    and findings-policy consistency discovered during review.
+  - Active thread: `coord/threads/2026-05-24-T-001-claude-important-task.md`
+- `T-013`: Reconcile findings-disclosure policy and task-ID collision.
+  - Lead: codex.
+  - Reviewer: claude.
+  - Status: **closed / reviewed-no-blockers**. Codex preserved historical T-012
+    messages as audit history, made current state unambiguous, and aligned
+    §2.11 / §2.12 so findings and claim levels 4-8 require full text of the
+    published version unless Kristian records an explicit override. Claude
+    reviewed with no blockers and approved commit/push.
   - Active thread: `coord/threads/2026-05-24-T-001-claude-important-task.md`
 
 ## Approved Decisions
@@ -105,8 +117,8 @@ folders through `bootstrap-lit-review.sh`.
 ## Workspace Notes
 
 - Working directory: `/Users/klopezva/GitHubProjects/lit-review-for-econ`
-- Git repo on `main` tracking `origin/main`; current local edits are T-012
-  project-boundary protocol updates.
+- Git repo on `main` tracking `origin/main`; current local edits are T-013
+  coordination/policy reconciliation updates approved for commit/push.
 - Known protocol-gap: Codex once wrote messages mid-thread; agents now verify
   `tail` after appending.
 - Resolved protocol-gap: reviewer promises must be reflected as visible

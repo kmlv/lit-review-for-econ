@@ -4,34 +4,34 @@ Principal: Kristian.
 
 ## Current Mode
 
-- Mode: **review**.
-- Active task: `T-012` project-boundary / monitor-only rule.
+- Mode: **completed / idle**.
+- Active task: none.
 - Active thread: `coord/threads/2026-05-24-T-001-claude-important-task.md`
-- Lead: codex.
-- Reviewer: claude.
-- Edit budget: **bounded-files** unless a new task claim widens it.
+- Lead: none.
+- Reviewer: none.
+- Wait owner: none.
+- Edit budget: none.
 - Check cadence: manual pulses from Kristian; no unattended loop is active.
-- Stop condition: canonical protocol and local install enforce monitor-only
-  boundaries for external repositories; validation passes; Claude review clears
-  or reports findings.
+- Stop condition: T-013 closed with Claude no-blockers review; bounded
+  reconciliation changes are approved for commit/push.
 - Codex resume target: `--last`.
 
 ## Bounded File Set
 
+- `DESIGN.md`
+- `agents/paper-reader.md`
+- `skills/claude/lit-review-read.md`
+- `skills/codex/lit-review-read/SKILL.md`
 - `coord/AGENTS_PROTOCOL.md`
 - `coord/PROVENANCE.md`
 - `coord/STATE.md`
 - `coord/OPERATING_MODE.md`
 - `coord/threads/2026-05-24-T-001-claude-important-task.md`
-- `/Users/klopezva/GitHubProjects/agent-filesystem-collaboration/PROTOCOL.md`
-- `/Users/klopezva/GitHubProjects/agent-filesystem-collaboration/CONVENTIONS.md`
-- `/Users/klopezva/GitHubProjects/agent-filesystem-collaboration/templates/coord/AGENTS_PROTOCOL.md`
-- `/Users/klopezva/.codex/skills/agent-filesystem-collaboration/SKILL.md`
 
 ## Ownership
 
-- codex: T-012 implemented and awaiting review.
-- claude: reviewer for T-012.
+- codex: no active ownership.
+- claude: no active ownership.
 
 ## Rules
 

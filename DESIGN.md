@@ -68,7 +68,8 @@ posts reviews, and respects ownership per the
     must come from a `key_findings` block of a reading note for a
     paper at `evidence_quality == full_text` AND `source_version ==
     published`** — see §2.12. The writer never infers findings from
-    a substitute_version, abstract_only, or absent reading note.
+    a substitute_version, non-published full-text copy, abstract_only,
+    or absent reading note.
 11. **Tiered evidence policy (binding — see §2.11).** Every candidate
     paper carries a `tier ∈ {1 essential, 2 important, 3 related}`
     that determines `fetch_policy ∈ {full_text_required, opportunistic,
@@ -82,8 +83,9 @@ posts reviews, and respects ownership per the
     distant cites may stay without findings as a judgment call to
     maximize logical and narrative clarity. Findings reported
     only when `evidence_quality == full_text` AND
-    `source_version == published`; `substitute_version` and
-    `abstract_only` records do not contribute findings (claim
+    `source_version == published`; weaker evidence, including
+    `substitute_version`, non-published full-text copies, and
+    `abstract_only` records, does not contribute findings (claim
     level 1-3 only). Magnitudes default to qualitative; specific
     numbers are reported only when high-relevance to the target
     paper's contribution.
@@ -195,13 +197,19 @@ and the claim level it intends to assert. Eight levels:
 | `evidence_quality` | 1 bib | 2 topic | 3 method | 4 result | 5 num | 6 mech | 7 het | 8 policy |
 |--------------------|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | `full_text` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| `substitute_version` | ✅ | ✅ | ✅ | ⚠ version match | ⚠ version match | ✅ | ⚠ | ⚠ |
+| `substitute_version` | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | `abstract_only` | ✅ | ✅ | ⚠ if abstract states design | ⚠ corroborated | ❌ | ❌ | ❌ | ❌ |
 | `none` | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 
 Legend: ✅ allowed · ⚠ allowed with corroboration / version match ·
 ❌ refused at draft time. QA stage 8 emits `[blocker]` on any
 violation; the writer self-censors during draft.
+
+For claim levels 4-8, `full_text` means `evidence_quality == full_text`
+**and** `source_version == published`. A full-text working paper, preprint,
+accepted manuscript, or unknown version is treated as `substitute_version`
+until the published version is obtained or Kristian records an explicit
+override in `coord/HUMAN.md`.
 
 ### Promotion / demotion (D2)
 
@@ -304,11 +312,13 @@ block at the top of the note body, covering:
 - `caveats`: external-validity limits, identification caveats,
   or other discipline the author flags.
 
-For papers with `evidence_quality ∈ {substitute_version,
-abstract_only, none}`: the `key_findings` block is **omitted** (or
-left explicitly empty with a `findings_blocked_by_evidence_quality:
-true` flag). These papers contribute only at claim level 1–3 per
-§2.11.
+For all records below `evidence_quality == full_text` **and**
+`source_version == published` — including `substitute_version`,
+`abstract_only`, `none`, and full-text working-paper/preprint/accepted-MS
+copies — the `key_findings` block is **omitted** (or left explicitly empty
+with a `findings_blocked_by_evidence_quality: true` flag). These papers
+contribute only at claim level 1–3 per §2.11 unless Kristian records an
+explicit override in `coord/HUMAN.md`.
 
 ### Writer side (stage 7, `lit-writer` — v0.2)
 
@@ -324,11 +334,11 @@ The writer applies **judgment-based granularity**:
 - Findings are **mostly qualitative** ("audits substantially reduced
   missing expenditures"). Specific numerical magnitudes are reported
   only when they materially shape the target paper's positioning.
-- Substitute_version / abstract_only records: writer cites for
+- Records below the full-text + published bar: writer cites for
   topic/method/positioning only. **Never report findings from these.**
-  If a substitute paper has highly relevant content, the writer
-  flags it for re-acquisition rather than reporting findings from
-  the substitute.
+  If a substitute or non-published full-text paper has highly relevant
+  content, the writer flags it for re-acquisition rather than reporting
+  findings from that source.
 - Verb tense: past tense for what authors found, present tense for
   the design/method ("Abbink et al. (2002) **introduce** a repeated
   bribery game and **find** that…"). Standard econ-review register.

@@ -32,10 +32,11 @@ Use this skill after `/lit-review-screen` to produce structured reading notes.
    block at the top of the note body with `headline_finding`, `direction`,
    `magnitude` (qualitative by default; numeric only when central + page
    anchored), `mechanism` (if argued), `heterogeneity` (if relevant), and
-   `caveats`. When evidence is `substitute_version` / `abstract_only` /
-   `none`: **omit** `key_findings` or flag
-   `findings_blocked_by_evidence_quality: true`. Never infer findings
-   from sub-full-text sources.
+   `caveats`. When the source is below the full-text + published bar —
+   including `substitute_version`, `abstract_only`, `none`, or full text
+   from a working-paper/preprint/accepted-MS/unknown version — **omit**
+   `key_findings` or flag `findings_blocked_by_evidence_quality: true`.
+   Never infer findings from weaker evidence.
 7. Update `evidence_quality`, `source_version`, `pdf_sha256`, and
    `claim_levels_supported`.
 

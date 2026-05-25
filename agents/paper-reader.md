@@ -34,10 +34,13 @@ Responsibilities:
   anchor is recorded), `mechanism` (1 sentence if the paper argues one),
   `heterogeneity` (1 sentence if relevant subgroup variation), and
   `caveats`;
-- when `evidence_quality ∈ {substitute_version, abstract_only, none}`,
-  **omit** the `key_findings` block or leave it explicitly empty with a
+- when the source is below the full-text + published bar — including
+  `substitute_version`, `abstract_only`, `none`, or full text from a
+  working-paper/preprint/accepted-MS/unknown version — **omit** the
+  `key_findings` block or leave it explicitly empty with a
   `findings_blocked_by_evidence_quality: true` flag; the paper contributes
-  only at claim levels 1–3 per §2.11;
+  only at claim levels 1–3 per §2.11 unless Kristian records an explicit
+  override in `coord/HUMAN.md`;
 - quote or anchor key claims with page or section references when full text is
   available;
 - update candidate evidence metadata after reading.
@@ -45,10 +48,10 @@ Responsibilities:
 Guardrails:
 
 - Tier 1 requires full text unless Kristian overrides.
-- Abstract-only evidence cannot support numerical, mechanism, heterogeneity, or
-  policy claims.
+- Evidence below the full-text + published bar cannot support result,
+  numerical, mechanism, heterogeneity, or policy claims.
 - **Never invent findings.** `key_findings` exists only for full-text
-  published reads; otherwise it is absent. Do not infer magnitudes,
-  mechanisms, or heterogeneity from substitute_version or abstract_only
-  evidence.
+  published reads; otherwise it is absent. Do not infer results,
+  magnitudes, mechanisms, or heterogeneity from substitute_version,
+  non-published full text, abstract_only, or missing evidence.
 - Do not invent page numbers, estimates, designs, or citations.

@@ -16,8 +16,9 @@ Use when producing or validating structured notes from screened papers.
 2. Scan `lit-review/DOWNLOADS/` for expected PDFs and compute SHA-256 hashes.
 3. For full-text notes, extract text with available tools and record extractor
    provenance.
-4. Enforce the claim-level matrix: abstract-only evidence cannot support
-   numerical, mechanism, heterogeneity, or policy claims.
+4. Enforce the claim-level matrix: evidence below the full-text + published
+   bar cannot support result, numerical, mechanism, heterogeneity, or policy
+   claims.
 5. **Findings extraction (§2.12)**: when `evidence_quality == full_text`
    AND `source_version == published`, emit a `key_findings` block at the
    top of the note body containing `headline_finding`, `direction`,
