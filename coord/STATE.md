@@ -1,6 +1,6 @@
 # State
 
-Last updated: 2026-05-25T06:25:18Z
+Last updated: 2026-05-25T06:34:14Z
 
 Protocol: agent-filesystem-collaboration v0.2.4 local install, adapted from
 `/Users/klopezva/GitHubProjects/agent-filesystem-collaboration/templates/coord/AGENTS_PROTOCOL.md`.
@@ -39,16 +39,18 @@ folders through `bootstrap-lit-review.sh`.
 - `T-005`: Per-stage skills and subagents for v0.1 pipeline.
   - Lead: codex.
   - Reviewer: claude.
-  - Status: **implementation**. Codex claimed the work and will hand off to
-    Claude for review after validation.
+  - Status: **closed**. Codex implemented and committed stage skills/subagents
+    at `07d6f9e`; Claude review passed with no `[blocker]` findings.
   - Scope: `/scope`, `/plan`, `/fetch`, `/screen`, `/read` plus
     `lit-search-strategist`, `lit-retriever`, `lit-screener`, `paper-reader`.
 - `T-006`: Deferred polish from T-002 review.
   - Lead: unassigned.
   - Reviewer: unassigned.
-  - Status: **proposed** by Claude review.
+  - Status: **proposed** by Claude reviews.
   - Scope: install log behavior, candidate schema, paper-scoper heuristics,
-    tool-capability depth, provenance timestamp check, README dependency link.
+    tool-capability depth, provenance timestamp check, README dependency link,
+    Stage 3 schema/source-order completeness, `landmarks/README.md`, DESIGN
+    anchors in skills, and README skill table.
 
 ## Approved Decisions
 
