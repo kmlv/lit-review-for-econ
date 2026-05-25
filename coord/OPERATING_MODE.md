@@ -11,8 +11,8 @@ Principal: Kristian.
 - Reviewer: claude.
 - Edit budget: **bounded-files** for the first implementation slice.
 - Check cadence: manual pulses from Kristian; no unattended loop is active.
-- Stop condition: initial scaffold exists, basic validation passes, and Claude
-  has no blocking review findings.
+- Stop condition: initial scaffold exists, basic validation passes, Claude has
+  no blocking review findings, and any reviewer wait is explicit in `STATE.md`.
 - Codex resume target: `--last`.
 
 ## Bounded File Set
@@ -33,11 +33,16 @@ Principal: Kristian.
 ## Ownership
 
 - codex: implementation scaffold and mechanical files listed above.
-- claude: review of prose/design fidelity after Codex handoff.
+- claude: review of prose/design fidelity after Codex handoff. Current visible
+  wait: T-002 review was promised in-thread but has not appeared at the tail.
+- codex: T-004 protocol operational-visibility update across canonical
+  `agent-filesystem-collaboration` and this local install until handoff.
 
 ## Rules
 
 - Verify thread tail after every append.
+- Keep waits, blockers, stale promises, and ownership ambiguity visible in
+  `STATE.md` or `OPERATING_MODE.md` in the same turn they are detected.
 - Keep implementation small and reviewable.
 - Do not push to GitHub until README, LICENSE, bootstrap, template, and init
   skills exist and pass local validation.

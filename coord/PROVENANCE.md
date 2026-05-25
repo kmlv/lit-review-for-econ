@@ -20,6 +20,18 @@
 - Adaptation: replaced template variables with `principal: Kristian` and
   `agents: codex,claude`; retained local verify-`tail` adapter note.
 
+## Protocol Update
+
+- Imported: 2026-05-25T06:17:16Z
+- Source: `/Users/klopezva/GitHubProjects/agent-filesystem-collaboration/templates/coord/AGENTS_PROTOCOL.md`
+- Source protocol version: `0.2.4`
+- Rationale: T-004 canonical amendment added operational visibility rules:
+  promised reviews, waits, blockers, stale handoffs, and ownership ambiguity
+  must be reflected in `STATE.md` / `OPERATING_MODE.md`, not only buried in
+  the thread.
+- Adaptation: replaced template variables with `principal: Kristian` and
+  `agents: codex,claude`; retained local verify-`tail` adapter note.
+
 ## Design Inputs
 
 - `DESIGN.md` was authored through T-001 collaboration between Claude and Codex.

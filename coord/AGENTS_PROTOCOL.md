@@ -1,6 +1,6 @@
 ---
 protocol_name: agent-filesystem-collaboration
-protocol_version: 0.2.3
+protocol_version: 0.2.4
 principal: Kristian
 agents: codex,claude
 ---
@@ -43,14 +43,20 @@ Read this file, `coord/STATE.md`, `coord/OPERATING_MODE.md`, and the active thre
 5. Work only inside your claimed scope.
 6. Do not overwrite another agent's work.
 7. Report validation and open questions in the thread.
-8. Ask for cross-review on important changes.
-9. Escalate unresolved decisions to `coord/HUMAN.md`.
+8. Keep operational state visible: if work is waiting on a promised review,
+   blocked by another agent, stale beyond cadence, or dependent on a
+   handoff/ETA, update `coord/STATE.md` or `coord/OPERATING_MODE.md` in the
+   same turn so Kristian can see who has the ball without reading the whole
+   thread.
+9. Ask for cross-review on important changes.
+10. Escalate unresolved decisions to `coord/HUMAN.md`.
 
 ## Directory Roles
 
-- `coord/STATE.md`: fast project/task snapshot.
-- `coord/OPERATING_MODE.md`: current lead, reviewer, cadence, and pause/stop
-  state.
+- `coord/STATE.md`: fast project/task snapshot, including visible
+  blocked/waiting states.
+- `coord/OPERATING_MODE.md`: current lead, reviewer, cadence, wait ownership,
+  and pause/stop state.
 - `coord/HUMAN.md`: queue for decisions only Kristian can make.
 - `coord/threads/`: append-only coordination conversations.
 - `coord/work/<agent>/`: scratch, storyboards, audit notes, drafts. Other agents may read these files for transparency, but only the owning agent writes there unless a thread message explicitly hands off ownership.
@@ -140,8 +146,8 @@ names the files or scope. If two or more tasks are active, use claim files
 rather than thread-only claims.
 
 `Done` requires: claimed scope complete, checks recorded, latest peer review has
-no blockers, and durable decisions recorded when they affect future analysis,
-writing, or implementation.
+no blockers, no visible blocked/waiting state remains, and durable decisions
+recorded when they affect future analysis, writing, or implementation.
 
 Keep at most three tasks active across Doing and Review unless the principal
 explicitly approves a higher cap. Additional requests go to Backlog until an
@@ -159,7 +165,13 @@ Use these labels:
 - `[suggestion]`: recommended but not blocking.
 - `[nit]`: minor style/detail.
 
-Authors respond with accepted, rejected-because, or deferred. A clean review cycle means the reviewer posts `type: review` with no `[blocker]` findings and the lead acknowledges it.
+Authors respond with accepted, rejected-because, or deferred. A clean review
+cycle means the reviewer posts `type: review` with no `[blocker]` findings and
+the lead acknowledges it. If a reviewer promises a review or ETA and it does not
+land before the agreed cadence or next Kristian check, the lead must mark the
+task `blocked-on-review` or `waiting-on-reviewer` in
+`STATE.md`/`OPERATING_MODE.md` and file `type: protocol-gap` if this was not
+already visible.
 
 `ack: false` means the message awaits acknowledgement from the `to:` recipient. Because threads are append-only, acknowledge by appending a new response message with `ack: true`; do not edit prior messages to flip the field.
 
@@ -223,11 +235,13 @@ principal or external tooling. The protocol must be honest about that.
 - If `coord/OPERATING_MODE.md` contains `Codex resume target`, an external
   wrapper may run `coord-codex-pulse.sh` to resume Codex with the active thread.
 
-The principal should only need to intervene for `coord/HUMAN.md` items,
-`stale-ping` re-invocation, or stop-condition decisions.
+Kristian should only need to intervene for `coord/HUMAN.md` items, visible
+`blocked-*` / `waiting-*` states, `stale-ping` re-invocation, or stop-condition
+decisions.
 
-If the principal finds themselves repeatedly brokering messages that agents
-should read from the thread, file `type: protocol-gap`.
+If Kristian finds himself repeatedly brokering messages that agents should read
+from the thread, or asking "where are we?" because a wait/blocker is only
+implicit in the thread, file `type: protocol-gap`.
 
 Avoid no-op thread appends during scheduled loops; they clutter the audit trail.
 It is acceptable to update local liveness counters in `coord/OPERATING_MODE.md`
@@ -240,7 +254,8 @@ when there is no substantive thread message to add.
 - Verify `tail` after writing thread messages. This local adapter note follows
   the 2026-05-24 protocol-gap where Codex messages landed mid-thread after
   patching against repeated signatures.
-- Keep `STATE.md` concise.
+- Keep `STATE.md` concise, but never hide active waits, blockers, stale
+  promises, or ownership ambiguity for brevity.
 - Do not import files, decisions, threads, work notes, memory files, examples, adapters, reviews, retros, or other project-specific artifacts from other repositories unless they are protocol templates explicitly named in the active thread or in `coord/PROVENANCE.md`.
 - Apply reusable protocol improvements to the canonical protocol source first, then update project-local installations from a recorded source commit or tag. Treat local-only reusable protocol changes as a review `[blocker]`.
 - Record approved external protocol imports in `coord/PROVENANCE.md`.
