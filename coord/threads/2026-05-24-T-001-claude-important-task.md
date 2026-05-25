@@ -4210,3 +4210,110 @@ Files updated, committed, pushed; handoff posted with pointer
 to 04 for re-read trigger; Codex review with no `[blocker]`.
 
 - Claude
+
+---
+from: claude
+to: codex
+ts_utc: 2026-05-25T18:50:00Z
+type: handoff
+ack: false
+task: T-012
+lead: claude
+reviewer: codex
+files_changed:
+  - DESIGN.md
+  - agents/paper-reader.md
+  - skills/claude/lit-review-read.md
+  - skills/codex/lit-review-read/SKILL.md
+  - README.md
+commit: 746cb9c
+remote: https://github.com/kmlv/lit-review-for-econ
+---
+
+TL;DR: T-012 system change committed and pushed (`746cb9c`).
+Findings disclosure is now a binding non-negotiable (§2.12) with
+strict evidence-quality gates. Handing off for your review +
+pointer below for the downstream Bribery re-read trigger.
+
+## What changed (commit `746cb9c`, +205/-9)
+
+- `DESIGN.md`:
+  - **§2 bullet 12** added: findings disclosure binding rule.
+  - **New §2.12 "Findings Disclosure (binding)"** with reader-side
+    (`key_findings` block schema), writer-side (judgment-based
+    granularity, qualitative-magnitude default, never-from-substitute
+    rule), and QA-side (mismatch → `[blocker]`) sections.
+  - **§2.10 amendment**: anti-hallucination now explicitly requires
+    findings to come from a `key_findings` block of a full_text +
+    published reading note.
+- `agents/paper-reader.md`: emit `key_findings` block when
+  `evidence_quality == full_text` AND `source_version == published`;
+  omit/flag `findings_blocked_by_evidence_quality: true` otherwise.
+  Guardrail: never invent findings.
+- `skills/claude/lit-review-read.md` and
+  `skills/codex/lit-review-read/SKILL.md`: symmetric step-6 findings
+  extraction with the same evidence gate. Done-when criteria updated.
+- `README.md`: brief design-principle bullet about findings
+  disclosure.
+
+## Review asks
+
+1. **§2.12 schema completeness** — does the `key_findings` block
+   shape (headline / direction / magnitude / mechanism /
+   heterogeneity / caveats) capture what stage 7 writers will
+   actually need narratively?
+2. **Writer-side judgment** — is the "central vs peripheral"
+   guidance clear enough to apply consistently, or do we need a
+   tighter operational test (e.g., "include findings if the
+   citation is doing argumentative work, not just contextualizing")?
+3. **QA enforcement** — is the `[blocker]` trigger on
+   prose-vs-note magnitude mismatch the right granularity, or do
+   we want a softer `[suggestion]` for first-pass drafts?
+
+## Pointer to `04_literature_review` (downstream trigger)
+
+This is a cross-repo pointer per v0.2.5 — the substantive system
+change above is canonical in `lit-review-for-econ`; the **re-read
+execution** of the 19 existing Bribery reading notes is downstream
+work that happens in
+`/Users/klopezva/GitHubProjects/bribery-experiment-umbrella-repo/04_literature_review/`.
+
+When you next pulse in 04 (or the other Claude session there
+does), please open a new task there (suggested **T-020**:
+"Findings second-pass for Bribery reading notes") that:
+
+- pulls the system change at `746cb9c` (re-reads the new agents/
+  + skills/ + DESIGN.md §2.12);
+- for each of the 19 existing
+  `lit-review/READING_NOTES/<citekey>.md` files in 04: re-check
+  the underlying PDF's `evidence_quality` and `source_version`;
+- if `full_text` + `published`: add the `key_findings` block at
+  top of note body;
+- if not: add the `findings_blocked_by_evidence_quality: true`
+  flag explicitly so the writer knows to omit findings;
+- recompute the `claim_levels_supported` array on
+  `CANDIDATES.jsonl` after the second pass;
+- post handoff in 04's T-020 thread, primary coord per v0.2.5
+  (since Kristian's session locus may move to that repo when he
+  opens Claude Code there).
+
+Kristian told me explicitly: **whoever is leading T-019 prose in
+04 decides** whether to (a) hold T-019 prose pending T-020
+re-read, (b) continue T-019 with current evidence and add a
+findings-enrichment pass later, or (c) something else. Not my
+call.
+
+## What I am NOT doing
+
+- I will not touch any files in
+  `bribery-experiment-umbrella-repo/04_literature_review/` from
+  this session. Boundary respected.
+- I will not edit `04_literature_review/coord/threads/T-019-*`.
+  Other-Claude (reviewer) and you (lead) own that thread per the
+  role swap.
+
+T-012 from lit-review-for-econ side ready for your review.
+Releasing lead.
+
+- Claude
+
