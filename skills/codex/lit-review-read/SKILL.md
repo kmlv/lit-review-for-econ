@@ -5,6 +5,8 @@ description: Stage 5 helper for validating PDFs, hashing downloads, and creating
 
 # lit-review-read
 
+Design anchors: `DESIGN.md` §2.11, §3 stage 5, and §9.
+
 Use when producing or validating structured notes from screened papers.
 
 ## Workflow

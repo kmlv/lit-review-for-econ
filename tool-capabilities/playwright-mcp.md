@@ -13,3 +13,6 @@ folders that opt in through `lit-review/CONFIG.md`.
 - Do not bypass paywalls or access controls.
 - Log each browser-assisted attempt in `SEARCH_LOG.md`.
 - Keep Kristian in the loop for ambiguous download or license boundaries.
+- Default OFF. Enable only through `lit-review/CONFIG.md`.
+- Browser assistance should produce links/instructions for Kristian when manual
+  action is required, not silently operate authenticated pages.

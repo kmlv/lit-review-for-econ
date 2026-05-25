@@ -5,6 +5,8 @@ description: Stage 2: turn lit-review/SCOPE.md into SEARCH_PLAN.md with queries,
 
 # /lit-review-plan
 
+Design anchors: `DESIGN.md` §3 stage 2, §5, and §7.
+
 Use this skill after `/lit-review-scope` to create the retrieval plan.
 
 ## Inputs

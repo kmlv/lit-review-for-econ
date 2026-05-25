@@ -15,6 +15,9 @@ BibTeX mechanics, file audits, and mechanical QA.
 - Web browsing when current information is needed.
 - Browser/Chrome/computer-use plugins may be available depending on session.
 - File-based collaboration through `coord/`.
+- Paper-folder install target: `.codex/skills/<skill>/SKILL.md`.
+- Preferred responsibilities here: bootstrap, retrieval mechanics, JSONL/schema
+  validation, dedupe, hashing, BibTeX mechanics, and file audits.
 
 ## Policy
 

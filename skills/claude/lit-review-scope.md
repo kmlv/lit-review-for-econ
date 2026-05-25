@@ -5,6 +5,8 @@ description: Stage 1: scope a paper folder's literature review and produce lit-r
 
 # /lit-review-scope
 
+Design anchors: `DESIGN.md` §3 stage 1 and §7.
+
 Use this skill after `/lit-review-init` to define the literature-review scope.
 
 ## Inputs

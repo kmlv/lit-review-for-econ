@@ -5,6 +5,8 @@ description: Initialize the lit-review-for-econ workspace in a paper folder.
 
 # /lit-review-init
 
+Design anchors: `DESIGN.md` §3 stage 0, §8, and §12.
+
 Use this skill when a paper folder needs the v0.1 lit-review workspace.
 
 Steps:

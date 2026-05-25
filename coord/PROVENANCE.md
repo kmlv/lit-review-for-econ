@@ -19,6 +19,8 @@
   "check first, then announce", before nontrivial work.
 - Adaptation: replaced template variables with `principal: Kristian` and
   `agents: codex,claude`; retained local verify-`tail` adapter note.
+- Note: timestamp reflects the local import time recorded by Codex; the
+  canonical T-003 authoring/review crossed messages in-thread shortly after.
 
 ## Protocol Update
 

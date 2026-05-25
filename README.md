@@ -34,6 +34,21 @@ The first target is a synthetic paper folder generated from
 
 See [DESIGN.md](DESIGN.md) for the full design.
 
+Coordination is intentionally separate: paper folders that need Claude/Codex
+handoffs should also install
+[`agent-filesystem-collaboration`](https://github.com/BEX-KLAB/agent-filesystem-collaboration).
+
+## Available Skills And Agents
+
+| Stage | Claude skill | Codex skill | Primary agent | Main artifact |
+|---:|---|---|---|---|
+| 0 | `/lit-review-init` | `lit-review-init` | Claude/Codex | `CONFIG.md` |
+| 1 | `/lit-review-scope` | `lit-review-scope` | `paper-scoper` | `SCOPE.md` |
+| 2 | `/lit-review-plan` | `lit-review-plan` | `lit-search-strategist` | `SEARCH_PLAN.md` |
+| 3 | `/lit-review-fetch` | `lit-review-fetch` | `lit-retriever` | `CANDIDATES.jsonl`, `SEARCH_LOG.md`, `DOWNLOAD_QUEUE.md` |
+| 4 | `/lit-review-screen` | `lit-review-screen` | `lit-screener` | `SCREENED.md` |
+| 5 | `/lit-review-read` | `lit-review-read` | `paper-reader` | `READING_NOTES/<citekey>.md` |
+
 ## Install Into A Paper Folder
 
 Dry-run first:

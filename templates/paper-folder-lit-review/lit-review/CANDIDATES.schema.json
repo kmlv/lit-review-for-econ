@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kmlv/lit-review-for-econ/schemas/candidates.v0.1.json",
+  "title": "lit-review-for-econ CANDIDATES.jsonl record",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "citekey",
+    "title",
+    "authors",
+    "year",
+    "tier",
+    "tier_history",
+    "fetch_policy",
+    "fetch_attempts",
+    "evidence_quality",
+    "claim_levels_supported",
+    "manual_queue"
+  ],
+  "properties": {
+    "citekey": {"type": "string"},
+    "doi": {"type": ["string", "null"]},
+    "openalex_id": {"type": ["string", "null"]},
+    "title": {"type": "string"},
+    "authors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "family": {"type": "string"},
+          "given": {"type": "string"}
+        }
+      }
+    },
+    "year": {"type": ["integer", "null"]},
+    "tier": {"enum": [1, 2, 3]},
+    "tier_history": {"type": "array"},
+    "fetch_policy": {
+      "enum": ["full_text_required", "opportunistic", "metadata_only"]
+    },
+    "fetch_attempts": {"type": "array"},
+    "pdf_path": {"type": ["string", "null"]},
+    "pdf_sha256": {"type": ["string", "null"]},
+    "source_version": {
+      "enum": ["published", "working_paper", "preprint", "accepted_ms", "unknown", null]
+    },
+    "evidence_quality": {
+      "enum": ["full_text", "substitute_version", "abstract_only", "none"]
+    },
+    "claim_levels_supported": {
+      "type": "array",
+      "items": {"type": "integer", "minimum": 1, "maximum": 8}
+    },
+    "manual_queue": {"type": "boolean"},
+    "manual_queue_reason": {
+      "enum": ["blocked", "paywall", "no_pdf_found", "login_required", "ambiguous_version", null]
+    }
+  }
+}

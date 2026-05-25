@@ -5,6 +5,8 @@ description: Stage 4: screen candidates into tiers, exclusions, and borderline r
 
 # /lit-review-screen
 
+Design anchors: `DESIGN.md` §2.11 and §3 stage 4.
+
 Use this skill after `/lit-review-fetch` to produce a human-readable screening
 summary and final v0.1 tier assignments.
 

@@ -5,6 +5,8 @@ description: Stage 2 helper for constructing SEARCH_PLAN.md from scope, seeds, a
 
 # lit-review-plan
 
+Design anchors: `DESIGN.md` §3 stage 2, §5, and §7.
+
 Use when turning `lit-review/SCOPE.md` into an executable search plan.
 
 ## Workflow

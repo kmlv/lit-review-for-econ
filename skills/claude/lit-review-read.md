@@ -5,6 +5,8 @@ description: Stage 5: create grounded READING_NOTES for screened papers, respect
 
 # /lit-review-read
 
+Design anchors: `DESIGN.md` §2.11, §3 stage 5, and §9.
+
 Use this skill after `/lit-review-screen` to produce structured reading notes.
 
 ## Inputs

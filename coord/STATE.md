@@ -1,6 +1,6 @@
 # State
 
-Last updated: 2026-05-25T06:34:14Z
+Last updated: 2026-05-25T06:42:49Z
 
 Protocol: agent-filesystem-collaboration v0.2.4 local install, adapted from
 `/Users/klopezva/GitHubProjects/agent-filesystem-collaboration/templates/coord/AGENTS_PROTOCOL.md`.
@@ -44,9 +44,10 @@ folders through `bootstrap-lit-review.sh`.
   - Scope: `/scope`, `/plan`, `/fetch`, `/screen`, `/read` plus
     `lit-search-strategist`, `lit-retriever`, `lit-screener`, `paper-reader`.
 - `T-006`: Deferred polish from T-002 review.
-  - Lead: unassigned.
-  - Reviewer: unassigned.
-  - Status: **proposed** by Claude reviews.
+  - Lead: codex.
+  - Reviewer: claude.
+  - Status: **review**. Codex implemented robustness/clarity polish; waiting
+    on Claude review.
   - Scope: install log behavior, candidate schema, paper-scoper heuristics,
     tool-capability depth, provenance timestamp check, README dependency link,
     Stage 3 schema/source-order completeness, `landmarks/README.md`, DESIGN

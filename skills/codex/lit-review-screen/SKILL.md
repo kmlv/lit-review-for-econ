@@ -5,6 +5,8 @@ description: Stage 4 helper for applying the tier rubric and producing SCREENED.
 
 # lit-review-screen
 
+Design anchors: `DESIGN.md` §2.11 and §3 stage 4.
+
 Use when screening candidates after metadata retrieval.
 
 ## Workflow

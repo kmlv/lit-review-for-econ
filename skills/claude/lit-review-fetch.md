@@ -5,6 +5,8 @@ description: Stage 3: retrieve metadata, normalize candidate records, and mainta
 
 # /lit-review-fetch
 
+Design anchors: `DESIGN.md` §2.11, §3 stage 3, and §9.
+
 Use this skill after `/lit-review-plan` to populate `SEARCH_LOG.md`,
 `CANDIDATES.jsonl`, and `DOWNLOAD_QUEUE.md`.
 
@@ -19,8 +21,10 @@ API calls, normalization, dedupe, and file audits.
 3. Use open/legal metadata routes first. Record each backend/query in
    `SEARCH_LOG.md`.
 4. Write one JSON object per candidate after the header in `CANDIDATES.jsonl`.
-   Include tier, `tier_history`, `fetch_policy`, `fetch_attempts`,
-   `evidence_quality`, `claim_levels_supported`, and queue flags.
+   Include `citekey`, `doi`, `openalex_id`, `title`, `authors`, `year`,
+   `tier`, `tier_history`, `fetch_policy`, `fetch_attempts`, `pdf_path`,
+   `pdf_sha256`, `source_version`, `evidence_quality`,
+   `claim_levels_supported`, `manual_queue`, and `manual_queue_reason`.
 5. For blocked Tier 1 full texts, add clickable/manual instructions in
    `DOWNLOAD_QUEUE.md` with suggested save path and tried links. Do not bypass
    access controls.

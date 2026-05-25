@@ -143,6 +143,7 @@ copy_tree_file "lit-review/SCOPE.md"
 copy_tree_file "lit-review/SEARCH_PLAN.md"
 copy_tree_file "lit-review/SEARCH_LOG.md"
 copy_tree_file "lit-review/CANDIDATES.jsonl"
+copy_tree_file "lit-review/CANDIDATES.schema.json"
 copy_tree_file "lit-review/DOWNLOAD_QUEUE.md"
 copy_tree_file "lit-review/SCREENED.md"
 copy_tree_file "lit-review/ASSUMPTIONS.md"
@@ -165,8 +166,14 @@ if [[ "$DRY_RUN" -eq 1 ]]; then
   say "[dry-run] would write $LOG_PATH"
 else
   mkdir -p "$(dirname "$LOG_PATH")"
+  if [[ ! -e "$LOG_PATH" ]]; then
+    {
+      echo "# Lit Review Install Log"
+      echo
+    } > "$LOG_PATH"
+  fi
   {
-    echo "# Lit Review Install Log"
+    echo "## Install $STAMP"
     echo
     echo "- installed_at_utc: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
     echo "- source_repo: $ROOT_DIR"
@@ -174,13 +181,14 @@ else
     echo "- target: $TARGET_DIR"
     echo "- force: $FORCE"
     echo
-    echo "Installed files:"
+    echo "Install manifest:"
     echo
     echo "- lit-review/CONFIG.md"
     echo "- lit-review/SCOPE.md"
     echo "- lit-review/SEARCH_PLAN.md"
     echo "- lit-review/SEARCH_LOG.md"
     echo "- lit-review/CANDIDATES.jsonl"
+    echo "- lit-review/CANDIDATES.schema.json"
     echo "- lit-review/DOWNLOAD_QUEUE.md"
     echo "- lit-review/SCREENED.md"
     echo "- lit-review/ASSUMPTIONS.md"
@@ -194,7 +202,8 @@ else
     for agent in "${CLAUDE_AGENTS[@]}"; do
       echo "- .claude/agents/$agent.md"
     done
-  } > "$LOG_PATH"
+    echo
+  } >> "$LOG_PATH"
 fi
 
 if [[ ! -d "$TARGET_DIR/coord" ]]; then

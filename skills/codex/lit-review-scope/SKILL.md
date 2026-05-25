@@ -5,6 +5,8 @@ description: Stage 1 helper for producing and validating lit-review/SCOPE.md in 
 
 # lit-review-scope
 
+Design anchors: `DESIGN.md` §3 stage 1 and §7.
+
 Use when scoping a paper folder's literature review.
 
 ## Workflow
