@@ -33,6 +33,12 @@ The first target is a synthetic paper folder generated from
 - Authenticated access is opt-in and auditable; cookie contents are never
   logged.
 - Agent capabilities are versioned under `tool-capabilities/`.
+- **Findings disclosure** (DESIGN.md §2.12): the writer surfaces what cited
+  papers found, not only what they studied. Findings narrated for papers
+  central to the argument; peripheral cites may omit. Reported only from
+  reading notes where `evidence_quality == full_text` AND
+  `source_version == published`. Magnitudes default to qualitative; numbers
+  only when central to the target paper.
 
 See [DESIGN.md](DESIGN.md) for the full design.
 

@@ -64,13 +64,29 @@ posts reviews, and respects ownership per the
     limitations, and relevance. Abstract-only papers are marked and
     cannot support fine-grained empirical claims. Unsupported claims
     in the draft are downgraded or removed, never patched with a
-    convenient post-hoc citation.
+    convenient post-hoc citation. **Findings reported in the draft
+    must come from a `key_findings` block of a reading note for a
+    paper at `evidence_quality == full_text` AND `source_version ==
+    published`** — see §2.12. The writer never infers findings from
+    a substitute_version, abstract_only, or absent reading note.
 11. **Tiered evidence policy (binding — see §2.11).** Every candidate
     paper carries a `tier ∈ {1 essential, 2 important, 3 related}`
     that determines `fetch_policy ∈ {full_text_required, opportunistic,
     metadata_only}` and the `claim_level_allowed` set the writer may
     later use. Demotion of tier requires reviewer ack or Kristian
     override; promotion is unilateral by the reader.
+12. **Findings disclosure (binding — see §2.12).** The lit review
+    must report what cited papers **found**, not only what they
+    studied. The writer surfaces empirical findings narratively
+    for cited papers central to the argument; peripheral or
+    distant cites may stay without findings as a judgment call to
+    maximize logical and narrative clarity. Findings reported
+    only when `evidence_quality == full_text` AND
+    `source_version == published`; `substitute_version` and
+    `abstract_only` records do not contribute findings (claim
+    level 1-3 only). Magnitudes default to qualitative; specific
+    numbers are reported only when high-relevance to the target
+    paper's contribution.
 
 ## 2.11. Tiered Evidence Policy (binding)
 
@@ -258,6 +274,81 @@ claim_levels_supported: [1, 2, 3, 4, 5, 6, 7, 8]
 
 Tier-sorted with a `skip-this-for-now` toggle per item so Kristian
 can keep moving without editing JSON. See §9 for the full UX.
+
+## 2.12. Findings Disclosure (binding)
+
+The lit review must tell the reader **what cited papers found**, not
+only what they studied. A review that explains topics, designs, and
+methods without surfacing results leaves the reader knowing the
+questions but not the answers. This section makes findings disclosure
+a first-class output.
+
+### Reader side (stage 5, `paper-reader`)
+
+Every reading note for a paper with `evidence_quality == full_text`
+**and** `source_version == published` MUST include a `key_findings`
+block at the top of the note body, covering:
+
+- `headline_finding`: 1–2 sentences naming the main empirical
+  result the paper is most cited for.
+- `direction`: positive | negative | null | mixed (qualitative,
+  per main outcome).
+- `magnitude`: qualitative descriptor (e.g. "substantial",
+  "modest", "near-zero") by default. Specific numbers ONLY when
+  the paper's effect size is central to its contribution AND
+  the note records a `(p. NN)` anchor for the quote.
+- `mechanism`: 1 sentence if the paper argues for a specific
+  channel; omit if not.
+- `heterogeneity`: 1 sentence if the paper reports key subgroup
+  variation relevant to the target paper; omit if not.
+- `caveats`: external-validity limits, identification caveats,
+  or other discipline the author flags.
+
+For papers with `evidence_quality ∈ {substitute_version,
+abstract_only, none}`: the `key_findings` block is **omitted** (or
+left explicitly empty with a `findings_blocked_by_evidence_quality:
+true` flag). These papers contribute only at claim level 1–3 per
+§2.11.
+
+### Writer side (stage 7, `lit-writer` — v0.2)
+
+The writer applies **judgment-based granularity**:
+
+- Findings are surfaced **narratively** for cited papers central to
+  the literature/argument. Default: include findings for any paper
+  doing real argumentative work in the prose.
+- Peripheral, contextual, or distant cites may be mentioned by
+  topic/method only; findings can be omitted as a deliberate
+  judgment call to **maximize logical and narrative clarity** (per
+  Kristian, 2026-05-25).
+- Findings are **mostly qualitative** ("audits substantially reduced
+  missing expenditures"). Specific numerical magnitudes are reported
+  only when they materially shape the target paper's positioning.
+- Substitute_version / abstract_only records: writer cites for
+  topic/method/positioning only. **Never report findings from these.**
+  If a substitute paper has highly relevant content, the writer
+  flags it for re-acquisition rather than reporting findings from
+  the substitute.
+- Verb tense: past tense for what authors found, present tense for
+  the design/method ("Abbink et al. (2002) **introduce** a repeated
+  bribery game and **find** that…"). Standard econ-review register.
+
+### QA side (stage 8, `lit-reviewer-qa`)
+
+QA verifies:
+
+- Every paragraph that asserts a finding cites a paper with
+  `evidence_quality == full_text` AND `source_version ==
+  published`. Mismatch → `[blocker]`.
+- Numerical magnitudes in prose match the `(p. NN)`-anchored quote
+  in the corresponding reading note's `key_findings.magnitude`
+  field. Mismatch → `[blocker]`.
+- Findings prose does not exceed what the paper itself claims (no
+  upgrading correlation to causation, no inferring mechanism the
+  paper doesn't argue).
+- The judgment call to omit findings for a peripheral cite is
+  acceptable; the QA does not require findings for every cite,
+  only that findings, when present, are correctly grounded.
 
 ## 3. Pipeline
 

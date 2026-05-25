@@ -1,11 +1,11 @@
 ---
 name: lit-review-read
-description: Stage 5: create grounded READING_NOTES for screened papers, respecting evidence quality and manual PDF gaps.
+description: Stage 5: create grounded READING_NOTES for screened papers, respecting evidence quality and manual PDF gaps. Extracts a key_findings block when evidence supports it.
 ---
 
 # /lit-review-read
 
-Design anchors: `DESIGN.md` §2.11, §3 stage 5, and §9.
+Design anchors: `DESIGN.md` §2.10, §2.11, §2.12, §3 stage 5, and §9.
 
 Use this skill after `/lit-review-screen` to produce structured reading notes.
 
@@ -27,12 +27,24 @@ Use this skill after `/lit-review-screen` to produce structured reading notes.
 5. Record identification strategy, setting, treatment/variation, outcomes,
    estimator/design, results, mechanisms, limitations, relevance, and quoted
    anchors with page or section references when full text is available.
-6. Update `evidence_quality`, `source_version`, `pdf_sha256`, and
+6. **Findings extraction (§2.12)**: when the read is `evidence_quality ==
+   full_text` AND `source_version == published`, emit a `key_findings`
+   block at the top of the note body with `headline_finding`, `direction`,
+   `magnitude` (qualitative by default; numeric only when central + page
+   anchored), `mechanism` (if argued), `heterogeneity` (if relevant), and
+   `caveats`. When evidence is `substitute_version` / `abstract_only` /
+   `none`: **omit** `key_findings` or flag
+   `findings_blocked_by_evidence_quality: true`. Never infer findings
+   from sub-full-text sources.
+7. Update `evidence_quality`, `source_version`, `pdf_sha256`, and
    `claim_levels_supported`.
 
 ## Done When
 
 - Notes exist for the agreed Tier 1/Tier 2 reading set.
+- `key_findings` block present where evidence permits; omitted/flagged
+  otherwise.
 - Unsupported claim levels are not asserted.
 - Manual download blockers remain visible in `DOWNLOAD_QUEUE.md`.
-- The folder is ready for v0.2 curation/drafting.
+- The folder is ready for v0.2 curation/drafting with findings the
+  writer can surface narratively.
