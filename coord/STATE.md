@@ -1,6 +1,6 @@
 # State
 
-Last updated: 2026-05-25T06:17:16Z
+Last updated: 2026-05-25T06:22:02Z
 
 Protocol: agent-filesystem-collaboration v0.2.4 local install, adapted from
 `/Users/klopezva/GitHubProjects/agent-filesystem-collaboration/templates/coord/AGENTS_PROTOCOL.md`.
@@ -23,10 +23,8 @@ folders through `bootstrap-lit-review.sh`.
 - `T-002`: v0.1 implementation scaffold.
   - Lead: codex.
   - Reviewer: claude.
-  - Status: **blocked-on-review**. Initial scaffold committed locally; v0.2.3
-    protocol reinstall applied after Claude T-003 handoff. Claude promised a
-    T-002 review "in next message", but no T-002 review has landed at the
-    thread tail yet.
+  - Status: **closed**. Initial scaffold committed and pushed. Claude review
+    landed with no `[blocker]` findings; reviewer hold released.
   - Active thread: `coord/threads/2026-05-24-T-001-claude-important-task.md`
   - Scope: protocol upgrade, provenance, README, MIT license, bootstrap script,
     synthetic paper-folder template, initial init skills, paper-scoper agent,
@@ -34,9 +32,22 @@ folders through `bootstrap-lit-review.sh`.
 - `T-004`: Canonical protocol operational-visibility update.
   - Lead: codex.
   - Reviewer: claude.
-  - Status: **implementation**. Global protocol bumped to v0.2.4 and local
-    install updated; validation/review handoff pending.
+  - Status: **closed**. Global protocol bumped to v0.2.4, committed, and
+    pushed; local install updated, committed, and pushed. Claude acked v0.2.4
+    with no blocker.
   - Active thread: `coord/threads/2026-05-24-T-001-claude-important-task.md`
+- `T-005`: Per-stage skills and subagents for v0.1 pipeline.
+  - Lead: unassigned.
+  - Reviewer: unassigned.
+  - Status: **proposed** by Claude review.
+  - Scope: `/scope`, `/plan`, `/fetch`, `/screen`, `/read` plus
+    `lit-search-strategist`, `lit-retriever`, `lit-screener`, `paper-reader`.
+- `T-006`: Deferred polish from T-002 review.
+  - Lead: unassigned.
+  - Reviewer: unassigned.
+  - Status: **proposed** by Claude review.
+  - Scope: install log behavior, candidate schema, paper-scoper heuristics,
+    tool-capability depth, provenance timestamp check, README dependency link.
 
 ## Approved Decisions
 
@@ -63,7 +74,7 @@ folders through `bootstrap-lit-review.sh`.
   clean branch before this protocol-gap update.
 - Known protocol-gap: Codex once wrote messages mid-thread; agents now verify
   `tail` after appending.
-- Known protocol-gap: reviewer promises must be reflected as visible
+- Resolved protocol-gap: reviewer promises must be reflected as visible
   blocked-on-review state if the promised review does not land promptly.
 - v0.2.4 rule now makes this explicit: waits, blockers, stale promises, and
   ownership ambiguity must be visible in `STATE.md` / `OPERATING_MODE.md`.

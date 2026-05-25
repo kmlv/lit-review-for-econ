@@ -5,14 +5,15 @@ Principal: Kristian.
 ## Current Mode
 
 - Mode: **implementation**.
-- Active task: T-002 — v0.1 implementation scaffold for `lit-review-for-econ`.
+- Active task: none; T-002 and T-004 are closed. Next proposed implementation
+  task is T-005 if Kristian wants to continue the v0.1 pipeline.
 - Active thread: `coord/threads/2026-05-24-T-001-claude-important-task.md`
-- Lead: codex.
-- Reviewer: claude.
-- Edit budget: **bounded-files** for the first implementation slice.
+- Lead: unassigned.
+- Reviewer: unassigned.
+- Edit budget: **bounded-files** unless a new task claim widens it.
 - Check cadence: manual pulses from Kristian; no unattended loop is active.
-- Stop condition: initial scaffold exists, basic validation passes, Claude has
-  no blocking review findings, and any reviewer wait is explicit in `STATE.md`.
+- Stop condition: no active implementation loop. For the next task, require a
+  fresh claim with scope, files, reviewer, and stop condition before edits.
 - Codex resume target: `--last`.
 
 ## Bounded File Set
@@ -32,11 +33,8 @@ Principal: Kristian.
 
 ## Ownership
 
-- codex: implementation scaffold and mechanical files listed above.
-- claude: review of prose/design fidelity after Codex handoff. Current visible
-  wait: T-002 review was promised in-thread but has not appeared at the tail.
-- codex: T-004 protocol operational-visibility update across canonical
-  `agent-filesystem-collaboration` and this local install until handoff.
+- codex: no active ownership after T-002/T-004 closure.
+- claude: reviewer hold released after T-002 review with no blockers.
 
 ## Rules
 
