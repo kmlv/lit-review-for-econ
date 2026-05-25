@@ -34,6 +34,19 @@
 - Adaptation: replaced template variables with `principal: Kristian` and
   `agents: codex,claude`; retained local verify-`tail` adapter note.
 
+## Protocol Update
+
+- Imported: 2026-05-25T07:19:28Z
+- Source: `/Users/klopezva/GitHubProjects/agent-filesystem-collaboration/templates/coord/AGENTS_PROTOCOL.md`
+- Source commit: `79ee3fa`
+- Source protocol version: `0.2.5`
+- Rationale: T-008 canonical amendment added current-project-first
+  coordination: primary messages stay in the project/repo where the active
+  conversation is happening, with cross-repo target coords receiving pointers,
+  mirrors, or later claims only after.
+- Adaptation: replaced template variables with `principal: Kristian` and
+  `agents: codex,claude`; retained local verify-`tail` adapter note.
+
 ## Design Inputs
 
 - `DESIGN.md` was authored through T-001 collaboration between Claude and Codex.

@@ -1,6 +1,6 @@
 ---
 protocol_name: agent-filesystem-collaboration
-protocol_version: 0.2.4
+protocol_version: 0.2.5
 principal: Kristian
 agents: codex,claude
 ---
@@ -34,6 +34,14 @@ Read this file, `coord/STATE.md`, `coord/OPERATING_MODE.md`, and the active thre
    This applies whether the task arrived via chat, an
    `OPERATING_MODE.md` flip, a `HUMAN.md` resolution, or an in-flight
    handoff. Never start nontrivial work silently.
+
+0a. **Coordinate in the current project first.** If the user conversation or
+   active agent session is happening in this repository/project, write the
+   primary coordination message in this repo's `coord/` first, even when the
+   subject or target files live in another repository/project. Cross-repo target
+   `coord/` surfaces may receive pointers, mirrors, or later claims, but they
+   must not become the only place where the current conversation is coordinated
+   unless Kristian explicitly switches projects.
 
 1. Read `coord/STATE.md`.
 2. Read `coord/OPERATING_MODE.md`.
@@ -250,6 +258,8 @@ when there is no substantive thread message to add.
 ## Quality Rules
 
 - Read before writing.
+- Coordinate in the current project first; for cross-repo work, leave a pointer
+  in this project's active thread before moving detailed work elsewhere.
 - Keep threads append-only.
 - Verify `tail` after writing thread messages. This local adapter note follows
   the 2026-05-24 protocol-gap where Codex messages landed mid-thread after

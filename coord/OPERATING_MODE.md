@@ -5,15 +5,15 @@ Principal: Kristian.
 ## Current Mode
 
 - Mode: **implementation**.
-- Active task: none; T-006 is closed. The system is ready for a first real-use
-  smoke test against a paper folder.
+- Active task: `T-008` current-project-first coordination rule.
 - Active thread: `coord/threads/2026-05-24-T-001-claude-important-task.md`
-- Lead: unassigned.
-- Reviewer: unassigned.
+- Lead: codex.
+- Reviewer: claude.
 - Edit budget: **bounded-files** unless a new task claim widens it.
 - Check cadence: manual pulses from Kristian; no unattended loop is active.
-- Stop condition: no active implementation loop. For the next task, require a
-  fresh claim with scope, files, reviewer, and stop condition before edits.
+- Stop condition: canonical protocol v0.2.5 and this repo's local install
+  encode current-project-first coordination, validation passes, commits/pushes
+  land, and Claude has a review handoff.
 - Codex resume target: `--last`.
 
 ## Bounded File Set
@@ -33,12 +33,14 @@ Principal: Kristian.
 
 ## Ownership
 
-- codex: no active ownership after T-006 closure.
-- claude: reviewer hold released after T-006 review with no blockers.
+- codex: owns T-008 protocol/local coordination files until review handoff.
+- claude: reviewer for T-008; no edits to claimed files unless handed off.
 
 ## Rules
 
 - Verify thread tail after every append.
+- Coordinate in this project first when the active conversation is here, even
+  when the work target is another repository.
 - Keep waits, blockers, stale promises, and ownership ambiguity visible in
   `STATE.md` or `OPERATING_MODE.md` in the same turn they are detected.
 - Keep implementation small and reviewable.

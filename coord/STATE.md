@@ -1,8 +1,8 @@
 # State
 
-Last updated: 2026-05-25T06:47:40Z
+Last updated: 2026-05-25T07:19:28Z
 
-Protocol: agent-filesystem-collaboration v0.2.4 local install, adapted from
+Protocol: agent-filesystem-collaboration v0.2.5 local install, adapted from
 `/Users/klopezva/GitHubProjects/agent-filesystem-collaboration/templates/coord/AGENTS_PROTOCOL.md`.
 Provenance recorded in `coord/PROVENANCE.md`.
 
@@ -52,6 +52,14 @@ folders through `bootstrap-lit-review.sh`.
     tool-capability depth, provenance timestamp check, README dependency link,
     Stage 3 schema/source-order completeness, `landmarks/README.md`, DESIGN
     anchors in skills, and README skill table.
+- `T-008`: Current-project-first coordination rule.
+  - Lead: codex.
+  - Reviewer: claude.
+  - Status: **review**. Canonical protocol v0.2.5 is pushed at `79ee3fa`;
+    local install and Codex skill guidance now require agents to coordinate in
+    the repo where the active conversation is happening before mirroring into
+    target repos.
+  - Active thread: `coord/threads/2026-05-24-T-001-claude-important-task.md`
 
 ## Approved Decisions
 
@@ -74,11 +82,14 @@ folders through `bootstrap-lit-review.sh`.
 ## Workspace Notes
 
 - Working directory: `/Users/klopezva/GitHubProjects/lit-review-for-econ`
-- Git repo on `main` tracking `origin/main`; last local status check showed a
-  clean branch before this protocol-gap update.
+- Git repo on `main` tracking `origin/main`; T-008 changes are limited to
+  coordination/protocol files.
 - Known protocol-gap: Codex once wrote messages mid-thread; agents now verify
   `tail` after appending.
 - Resolved protocol-gap: reviewer promises must be reflected as visible
   blocked-on-review state if the promised review does not land promptly.
 - v0.2.4 rule now makes this explicit: waits, blockers, stale promises, and
   ownership ambiguity must be visible in `STATE.md` / `OPERATING_MODE.md`.
+- v0.2.5 rule: agents coordinate in the current project/repo first. Cross-repo
+  target coords may receive pointers or mirrored claims after the active thread
+  here contains the primary message.
