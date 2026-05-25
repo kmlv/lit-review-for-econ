@@ -26,11 +26,17 @@ Use this skill after `/lit-review-scope` to create the retrieval plan.
 4. Name source backends and fallback routes. At v0.1 default to OpenAlex,
    CrossRef, arXiv, RePEc/IDEAS, NBER, and manual seed expansion.
 5. Mark must-cite seeds as Tier 1 and specify how they will be verified.
-6. Request cross-agent review and Kristian sign-off before heavy fetching.
+6. Check the Author Alignment section in `SCOPE.md` and the open questions in
+   `QUESTIONS.md`. Do not green-light Stage 3 fetch until the gate is answered,
+   explicitly deferred by Kristian, or defaults are documented in
+   `ASSUMPTIONS.md` and surfaced for reviewer approval.
+7. Request cross-agent review and Kristian sign-off before heavy fetching.
 
 ## Done When
 
 - `SEARCH_PLAN.md` contains executable queries and source order.
 - Landmark/must-cite checks are explicit.
 - Tiering defaults from `CONFIG.md` are referenced.
+- The author-alignment gate is resolved, deferred, or assumption-backed with
+  reviewer visibility.
 - Stage 3 can run without guessing search strategy.

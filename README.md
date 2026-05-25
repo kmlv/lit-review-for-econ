@@ -22,6 +22,8 @@ The first target is a synthetic paper folder generated from
 ## Design Principles
 
 - Every stage writes named artifacts and can be resumed.
+- Early scope includes an author-alignment gate for research questions,
+  target fields/literatures, related-paper types, must-cites, and exclusions.
 - Final citations must be grounded in `READING_NOTES/<citekey>.md`.
 - PDF access is tiered:
   - Tier 1 essential papers require full text.
@@ -43,7 +45,7 @@ handoffs should also install
 | Stage | Claude skill | Codex skill | Primary agent | Main artifact |
 |---:|---|---|---|---|
 | 0 | `/lit-review-init` | `lit-review-init` | Claude/Codex | `CONFIG.md` |
-| 1 | `/lit-review-scope` | `lit-review-scope` | `paper-scoper` | `SCOPE.md` |
+| 1 | `/lit-review-scope` | `lit-review-scope` | `paper-scoper` | `SCOPE.md`, `QUESTIONS.md` |
 | 2 | `/lit-review-plan` | `lit-review-plan` | `lit-search-strategist` | `SEARCH_PLAN.md` |
 | 3 | `/lit-review-fetch` | `lit-review-fetch` | `lit-retriever` | `CANDIDATES.jsonl`, `SEARCH_LOG.md`, `DOWNLOAD_QUEUE.md` |
 | 4 | `/lit-review-screen` | `lit-review-screen` | `lit-screener` | `SCREENED.md` |

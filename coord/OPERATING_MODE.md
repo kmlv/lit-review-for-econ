@@ -5,14 +5,15 @@ Principal: Kristian.
 ## Current Mode
 
 - Mode: **review**.
-- Active task: `T-009` Bribery first real lit-review workspace.
+- Active task: `T-010` author-alignment gate for early scoping.
 - Active thread: `coord/threads/2026-05-24-T-001-claude-important-task.md`
 - Lead: codex.
 - Reviewer: claude.
 - Edit budget: **bounded-files** unless a new task claim widens it.
 - Check cadence: manual pulses from Kristian; no unattended loop is active.
-- Stop condition: Claude reviews T-009 handoff; Kristian can open the new
-  `04_literature_review/` repo in a separate VS Code window and continue there.
+- Stop condition: reusable design/templates/skills require early author
+  alignment on research questions, fields/literatures, and related paper types;
+  validation passes; Claude review clears or reports findings.
 - Codex resume target: `--last`.
 
 ## Bounded File Set
@@ -22,22 +23,23 @@ Principal: Kristian.
 - `coord/STATE.md`
 - `coord/OPERATING_MODE.md`
 - `coord/threads/2026-05-24-T-001-claude-important-task.md`
-- `/Users/klopezva/GitHubProjects/bribery-experiment-umbrella-repo/repos.yml`
-- `/Users/klopezva/GitHubProjects/bribery-experiment-umbrella-repo/.gitignore`
-- `/Users/klopezva/GitHubProjects/bribery-experiment-umbrella-repo/04_literature_review/`
+- `DESIGN.md`
 - `README.md`
-- `LICENSE`
-- `bootstrap-lit-review.sh`
-- `skills/claude/lit-review-init.md`
-- `skills/codex/lit-review-init/SKILL.md`
 - `agents/paper-scoper.md`
-- `templates/paper-folder-lit-review/`
-- `tool-capabilities/`
+- `skills/claude/lit-review-init.md`
+- `skills/claude/lit-review-scope.md`
+- `skills/claude/lit-review-plan.md`
+- `skills/codex/lit-review-scope/SKILL.md`
+- `skills/codex/lit-review-plan/SKILL.md`
+- `templates/paper-folder-lit-review/lit-review/SCOPE.md`
+- `templates/paper-folder-lit-review/lit-review/QUESTIONS.md`
+- `templates/paper-folder-lit-review/lit-review/SEARCH_PLAN.md`
+- `templates/paper-folder-lit-review/lit-review/ASSUMPTIONS.md`
 
 ## Ownership
 
-- codex: T-009 provisioning complete; waiting for Claude review.
-- claude: reviewer for T-009 handoff.
+- codex: awaiting T-010 review, ready to address findings.
+- claude: reviewer for T-010.
 
 ## Rules
 

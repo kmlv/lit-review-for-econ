@@ -25,14 +25,21 @@ Use this skill after `/lit-review-init` to define the literature-review scope.
 3. Inspect title, abstract, intro, hypotheses, design/identification sections,
    conclusion, bibliography, and appendices when present.
 4. Draft `SCOPE.md` with research question, contribution, target literatures,
-   JEL/theme tags, inclusion/exclusion rules, must-cite seeds, and tier
-   thresholds.
-5. Ask Kristian at most five blocking questions. If a question is not blocking,
-   record the default in `ASSUMPTIONS.md` and proceed.
+   JEL/theme tags, inclusion/exclusion rules, must-cite seeds, tier thresholds,
+   and Author Alignment status.
+5. Run the early author-alignment gate: ask Kristian at most five questions to
+   confirm the research questions, target literatures/fields, related-paper
+   types to include or de-emphasize, must-cite landmarks, and adjacent
+   literatures to exclude.
+6. If Kristian is unavailable, record defaults in `ASSUMPTIONS.md`, leave the
+   gate as pending or explicitly deferred, and make the assumptions visible for
+   reviewer approval before Stage 3 fetch.
 
 ## Done When
 
 - `SCOPE.md` has enough detail for a search plan.
 - Must-cite seeds are listed or the absence is explicit.
+- Author Alignment is answered, explicitly deferred by Kristian, or documented
+  in `ASSUMPTIONS.md` for reviewer approval.
 - Blocking questions are in `QUESTIONS.md` and, when coordinated, `coord/HUMAN.md`.
 - No citations or claims have been invented.

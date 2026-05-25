@@ -1,6 +1,6 @@
 # State
 
-Last updated: 2026-05-25T07:45:51Z
+Last updated: 2026-05-25T15:47:04Z
 
 Protocol: agent-filesystem-collaboration v0.2.5 local install, adapted from
 `/Users/klopezva/GitHubProjects/agent-filesystem-collaboration/templates/coord/AGENTS_PROTOCOL.md`.
@@ -61,10 +61,19 @@ folders through `bootstrap-lit-review.sh`.
 - `T-009`: Bribery first real lit-review workspace.
   - Lead: codex.
   - Reviewer: claude.
-  - Status: **review**. Dedicated child repo/workspace created at
+  - Status: **closed**. Dedicated child repo/workspace created at
     `/Users/klopezva/GitHubProjects/bribery-experiment-umbrella-repo/04_literature_review/`,
     private remote `git@github.com:kmlv/bribery-lit-review.git` pushed at
-    `148df59`, umbrella manifest pushed at `b72330a`; awaiting Claude review.
+    `148df59`, umbrella manifest pushed at `b72330a`; Claude review passed with
+    no blockers.
+  - Active thread: `coord/threads/2026-05-24-T-001-claude-important-task.md`
+- `T-010`: Author-alignment gate for early scoping.
+  - Lead: codex.
+  - Reviewer: claude.
+  - Status: **review**. Updated reusable design/templates/skills so
+    agents verify research questions, relevant fields/literatures, and related
+    paper types with Kristian near the start before heavy fetch; Claude review
+    requested.
   - Active thread: `coord/threads/2026-05-24-T-001-claude-important-task.md`
 
 ## Approved Decisions
@@ -89,7 +98,7 @@ folders through `bootstrap-lit-review.sh`.
 
 - Working directory: `/Users/klopezva/GitHubProjects/lit-review-for-econ`
 - Git repo on `main` tracking `origin/main`; current local edits are T-009
-  coordination/handoff notes for review.
+  review closure plus T-010 process updates.
 - Known protocol-gap: Codex once wrote messages mid-thread; agents now verify
   `tail` after appending.
 - Resolved protocol-gap: reviewer promises must be reflected as visible

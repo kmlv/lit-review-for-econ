@@ -280,8 +280,16 @@ one skill, one output artifact, and a "done-when" checklist.
 
 ### Stage gates
 
+- During 1 (`SCOPE.md`): **author-alignment gate**. After the
+  first manuscript/bibliography pass, ask Kristian to confirm the
+  inferred research questions, target literatures/fields, related-paper
+  types, must-cite landmarks, and explicit exclusions. Do this before
+  treating the scope as final. If Kristian is unavailable, record the
+  inferred defaults in `ASSUMPTIONS.md`; Stage 3 fetch should not begin
+  until the gate is answered, explicitly deferred by Kristian, or made
+  visible for reviewer approval.
 - After 2 (`SEARCH_PLAN.md`): cross-agent review + Kristian sign-off
-  on must-cite landmarks.
+  on must-cite landmarks and the author-alignment gate.
 - After 4 (`SCREENED.md`): cross-agent review of borderline rejects.
 - After 6 (`OUTLINE.md`): Kristian sign-off on narrative arc + gap.
 - After 7 (`DRAFT.tex`): cross-agent review + Kristian read-through.
@@ -293,7 +301,7 @@ lit-review/
   CONFIG.md            # style, language, paths, sources, Zotero, .bib target, tier thresholds, enable_browser_mcp, opportunistic_use_authenticated, tier2_queue_when_blocked
   .secrets/
     ezproxy-cookies.txt  # gitignored; UCSC EZProxy auth cookies; expiry detected, never logged
-  SCOPE.md             # RQ, hypotheses, identification, contribution, JEL, seeds, must_cite (auto-Tier 1)
+  SCOPE.md             # RQ, author-alignment status, hypotheses, identification, contribution, JEL, seeds, must_cite (auto-Tier 1)
   SEARCH_PLAN.md       # queries, sources, time window, must-cite landmarks
   SEARCH_LOG.md        # what we ran, when, against which backends, result counts, browser MCP audit lines
   CANDIDATES.jsonl     # canonical records with tier, tier_history, fetch_policy, fetch_attempts, pdf_sha256, source_version, evidence_quality, claim_levels_supported, access_method, manual_queue_reason
@@ -313,7 +321,7 @@ lit-review/
 ## 5. Subagents
 
 - `paper-scoper` — reads the paper folder, drafts `SCOPE.md`, asks ≤5
-  scoping questions.
+  author-alignment/scoping questions.
 - `lit-search-strategist` — produces `SEARCH_PLAN.md` with keyword
   bundles, JEL codes, seed authors, must-cite landmarks.
 - `lit-retriever` — executes the plan against configured backends,

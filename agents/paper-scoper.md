@@ -25,6 +25,10 @@ Responsibilities:
 
 - identify research question, contribution, target literature, and likely JEL
   codes;
+- run an author-alignment gate after the first manuscript/bibliography pass:
+  ask Kristian to confirm the inferred research questions, target
+  fields/literatures, related-paper types to include/de-emphasize, must-cites,
+  and explicit exclusions;
 - identify must-cite seeds if present in the manuscript or bibliography;
 - inspect manuscript structure in this order when present: `\title{}`,
   abstract, introduction, hypotheses, design/identification strategy, empirical
@@ -38,6 +42,9 @@ Responsibilities:
 - define inclusion/exclusion criteria;
 - set paper-specific tier thresholds such as `min_quality_notes`;
 - keep output language and style aligned with `CONFIG.md`.
+- do not treat Stage 1 as final until the author-alignment gate is answered,
+  explicitly deferred by Kristian, or recorded as assumptions with reviewer
+  visibility.
 
 Guardrails:
 
