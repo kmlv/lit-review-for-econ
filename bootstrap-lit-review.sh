@@ -106,7 +106,37 @@ run mkdir -p "$TARGET_DIR/lit-review/READING_NOTES"
 run mkdir -p "$TARGET_DIR/lit-review/DOWNLOADS"
 run mkdir -p "$TARGET_DIR/lit-review/.secrets"
 run mkdir -p "$TARGET_DIR/.claude/skills"
-run mkdir -p "$TARGET_DIR/.codex/skills/lit-review-init"
+run mkdir -p "$TARGET_DIR/.claude/agents"
+
+CODEX_SKILLS=(
+  lit-review-init
+  lit-review-scope
+  lit-review-plan
+  lit-review-fetch
+  lit-review-screen
+  lit-review-read
+)
+
+CLAUDE_SKILLS=(
+  lit-review-init
+  lit-review-scope
+  lit-review-plan
+  lit-review-fetch
+  lit-review-screen
+  lit-review-read
+)
+
+CLAUDE_AGENTS=(
+  paper-scoper
+  lit-search-strategist
+  lit-retriever
+  lit-screener
+  paper-reader
+)
+
+for skill in "${CODEX_SKILLS[@]}"; do
+  run mkdir -p "$TARGET_DIR/.codex/skills/$skill"
+done
 
 copy_tree_file "lit-review/CONFIG.md"
 copy_tree_file "lit-review/SCOPE.md"
@@ -119,8 +149,17 @@ copy_tree_file "lit-review/ASSUMPTIONS.md"
 copy_tree_file "lit-review/QUESTIONS.md"
 copy_tree_file "lit-review/.gitignore"
 
-copy_file "$ROOT_DIR/skills/claude/lit-review-init.md" "$TARGET_DIR/.claude/skills/lit-review-init.md"
-copy_file "$ROOT_DIR/skills/codex/lit-review-init/SKILL.md" "$TARGET_DIR/.codex/skills/lit-review-init/SKILL.md"
+for skill in "${CLAUDE_SKILLS[@]}"; do
+  copy_file "$ROOT_DIR/skills/claude/$skill.md" "$TARGET_DIR/.claude/skills/$skill.md"
+done
+
+for skill in "${CODEX_SKILLS[@]}"; do
+  copy_file "$ROOT_DIR/skills/codex/$skill/SKILL.md" "$TARGET_DIR/.codex/skills/$skill/SKILL.md"
+done
+
+for agent in "${CLAUDE_AGENTS[@]}"; do
+  copy_file "$ROOT_DIR/agents/$agent.md" "$TARGET_DIR/.claude/agents/$agent.md"
+done
 
 if [[ "$DRY_RUN" -eq 1 ]]; then
   say "[dry-run] would write $LOG_PATH"
@@ -146,8 +185,15 @@ else
     echo "- lit-review/SCREENED.md"
     echo "- lit-review/ASSUMPTIONS.md"
     echo "- lit-review/QUESTIONS.md"
-    echo "- .claude/skills/lit-review-init.md"
-    echo "- .codex/skills/lit-review-init/SKILL.md"
+    for skill in "${CLAUDE_SKILLS[@]}"; do
+      echo "- .claude/skills/$skill.md"
+    done
+    for skill in "${CODEX_SKILLS[@]}"; do
+      echo "- .codex/skills/$skill/SKILL.md"
+    done
+    for agent in "${CLAUDE_AGENTS[@]}"; do
+      echo "- .claude/agents/$agent.md"
+    done
   } > "$LOG_PATH"
 fi
 

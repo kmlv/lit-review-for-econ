@@ -57,8 +57,9 @@ Overwrite only with explicit backups:
 The bootstrap creates:
 
 - `lit-review/`
-- `.claude/skills/lit-review-init.md`
-- `.codex/skills/lit-review-init/SKILL.md`
+- `.claude/skills/lit-review-{init,scope,plan,fetch,screen,read}.md`
+- `.claude/agents/{paper-scoper,lit-search-strategist,lit-retriever,lit-screener,paper-reader}.md`
+- `.codex/skills/lit-review-{init,scope,plan,fetch,screen,read}/SKILL.md`
 - `lit-review/INSTALL_LOG.md`
 
 If the target folder does not have `coord/`, the bootstrap does not create one;
@@ -66,5 +67,6 @@ it prints a recommendation to install `agent-filesystem-collaboration`.
 
 ## Current Status
 
-Implementation scaffold in progress. The v0.1 design is closed; usable runtime
-behavior begins with `/lit-review-init`.
+The v0.1 design is closed. The scaffold now installs stages 0-5:
+`/lit-review-init`, `/lit-review-scope`, `/lit-review-plan`,
+`/lit-review-fetch`, `/lit-review-screen`, and `/lit-review-read`.

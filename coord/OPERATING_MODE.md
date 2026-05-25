@@ -5,15 +5,15 @@ Principal: Kristian.
 ## Current Mode
 
 - Mode: **implementation**.
-- Active task: none; T-002 and T-004 are closed. Next proposed implementation
-  task is T-005 if Kristian wants to continue the v0.1 pipeline.
+- Active task: T-005 — per-stage skills and subagents for the v0.1 pipeline.
 - Active thread: `coord/threads/2026-05-24-T-001-claude-important-task.md`
-- Lead: unassigned.
-- Reviewer: unassigned.
+- Lead: codex.
+- Reviewer: claude.
 - Edit budget: **bounded-files** unless a new task claim widens it.
 - Check cadence: manual pulses from Kristian; no unattended loop is active.
-- Stop condition: no active implementation loop. For the next task, require a
-  fresh claim with scope, files, reviewer, and stop condition before edits.
+- Stop condition: per-stage Claude/Codex skills and four subagents exist,
+  bootstrap dry-run and smoke install pass, `git diff --check` passes, and
+  Claude receives a review handoff.
 - Codex resume target: `--last`.
 
 ## Bounded File Set
@@ -33,8 +33,8 @@ Principal: Kristian.
 
 ## Ownership
 
-- codex: no active ownership after T-002/T-004 closure.
-- claude: reviewer hold released after T-002 review with no blockers.
+- codex: T-005 implementation files listed in the latest claim.
+- claude: T-005 reviewer after Codex handoff.
 
 ## Rules
 

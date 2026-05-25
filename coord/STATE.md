@@ -1,6 +1,6 @@
 # State
 
-Last updated: 2026-05-25T06:22:02Z
+Last updated: 2026-05-25T06:25:18Z
 
 Protocol: agent-filesystem-collaboration v0.2.4 local install, adapted from
 `/Users/klopezva/GitHubProjects/agent-filesystem-collaboration/templates/coord/AGENTS_PROTOCOL.md`.
@@ -37,9 +37,10 @@ folders through `bootstrap-lit-review.sh`.
     with no blocker.
   - Active thread: `coord/threads/2026-05-24-T-001-claude-important-task.md`
 - `T-005`: Per-stage skills and subagents for v0.1 pipeline.
-  - Lead: unassigned.
-  - Reviewer: unassigned.
-  - Status: **proposed** by Claude review.
+  - Lead: codex.
+  - Reviewer: claude.
+  - Status: **implementation**. Codex claimed the work and will hand off to
+    Claude for review after validation.
   - Scope: `/scope`, `/plan`, `/fetch`, `/screen`, `/read` plus
     `lit-search-strategist`, `lit-retriever`, `lit-screener`, `paper-reader`.
 - `T-006`: Deferred polish from T-002 review.

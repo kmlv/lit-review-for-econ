@@ -18,8 +18,8 @@ Use when a target paper folder should receive the v0.1 lit-review scaffold.
    - `lit-review/SCOPE.md`
    - `lit-review/CANDIDATES.jsonl`
    - `lit-review/DOWNLOAD_QUEUE.md`
-   - `.claude/skills/lit-review-init.md`
-   - `.codex/skills/lit-review-init/SKILL.md`
+   - `.claude/skills/lit-review-{init,scope,plan,fetch,screen,read}.md`
+   - `.codex/skills/lit-review-{init,scope,plan,fetch,screen,read}/SKILL.md`
 5. Report installed files and any skipped existing files.
 
 Do not overwrite existing paper-folder files unless Kristian explicitly asks or
