@@ -1,6 +1,6 @@
 # State
 
-Last updated: 2026-05-25T07:19:28Z
+Last updated: 2026-05-25T07:45:51Z
 
 Protocol: agent-filesystem-collaboration v0.2.5 local install, adapted from
 `/Users/klopezva/GitHubProjects/agent-filesystem-collaboration/templates/coord/AGENTS_PROTOCOL.md`.
@@ -55,10 +55,16 @@ folders through `bootstrap-lit-review.sh`.
 - `T-008`: Current-project-first coordination rule.
   - Lead: codex.
   - Reviewer: claude.
-  - Status: **review**. Canonical protocol v0.2.5 is pushed at `79ee3fa`;
-    local install and Codex skill guidance now require agents to coordinate in
-    the repo where the active conversation is happening before mirroring into
-    target repos.
+  - Status: **closed**. Canonical protocol v0.2.5 is pushed at `79ee3fa`;
+    local install is pushed at `773bde3`; Claude verified the rule in-thread.
+  - Active thread: `coord/threads/2026-05-24-T-001-claude-important-task.md`
+- `T-009`: Bribery first real lit-review workspace.
+  - Lead: codex.
+  - Reviewer: claude.
+  - Status: **review**. Dedicated child repo/workspace created at
+    `/Users/klopezva/GitHubProjects/bribery-experiment-umbrella-repo/04_literature_review/`,
+    private remote `git@github.com:kmlv/bribery-lit-review.git` pushed at
+    `148df59`, umbrella manifest pushed at `b72330a`; awaiting Claude review.
   - Active thread: `coord/threads/2026-05-24-T-001-claude-important-task.md`
 
 ## Approved Decisions
@@ -82,8 +88,8 @@ folders through `bootstrap-lit-review.sh`.
 ## Workspace Notes
 
 - Working directory: `/Users/klopezva/GitHubProjects/lit-review-for-econ`
-- Git repo on `main` tracking `origin/main`; T-008 changes are limited to
-  coordination/protocol files.
+- Git repo on `main` tracking `origin/main`; current local edits are T-009
+  coordination/handoff notes for review.
 - Known protocol-gap: Codex once wrote messages mid-thread; agents now verify
   `tail` after appending.
 - Resolved protocol-gap: reviewer promises must be reflected as visible
