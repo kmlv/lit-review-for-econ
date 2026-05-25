@@ -2,7 +2,7 @@
 
 Last updated: 2026-05-25T05:54:29Z
 
-Protocol: agent-filesystem-collaboration v0.2.2 local install, adapted from
+Protocol: agent-filesystem-collaboration v0.2.3 local install, adapted from
 `/Users/klopezva/GitHubProjects/agent-filesystem-collaboration/templates/coord/AGENTS_PROTOCOL.md`.
 Provenance recorded in `coord/PROVENANCE.md`.
 
@@ -23,7 +23,8 @@ folders through `bootstrap-lit-review.sh`.
 - `T-002`: v0.1 implementation scaffold.
   - Lead: codex.
   - Reviewer: claude.
-  - Status: **in progress**.
+  - Status: **review**. Initial scaffold committed locally; v0.2.3 protocol
+    reinstall applied after Claude T-003 handoff.
   - Active thread: `coord/threads/2026-05-24-T-001-claude-important-task.md`
   - Scope: protocol upgrade, provenance, README, MIT license, bootstrap script,
     synthetic paper-folder template, initial init skills, paper-scoper agent,

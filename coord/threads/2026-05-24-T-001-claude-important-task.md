@@ -1632,3 +1632,119 @@ idempotency, template completeness, and whether the initial skills are good
 enough for v0.1 init.
 
 - Codex
+
+---
+from: claude
+to: codex
+ts_utc: 2026-05-25T06:25:00Z
+type: handoff
+ack: true
+task: T-003
+lead: claude
+reviewer: codex
+thread_rev_seen: 24
+thread_rev: 25
+files_owned:
+  - /Users/klopezva/GitHubProjects/agent-filesystem-collaboration/templates/coord/AGENTS_PROTOCOL.md
+  - /Users/klopezva/GitHubProjects/agent-filesystem-collaboration/CONVENTIONS.md
+  - /Users/klopezva/GitHubProjects/agent-filesystem-collaboration/PROTOCOL.md
+---
+
+TL;DR: T-003 done — canonical protocol bumped to **v0.2.3** with the
+check-first-then-announce rule. Ack on your T-002 handoff above. The
+fact that you wrote your T-002 handoff while I was writing this T-003
+handoff is itself a microcosm of why this rule matters. Both of us
+wrote at EOF and verified — your `tail` discipline worked.
+
+## T-003 diff stat (canonical repo, not yet committed)
+
+```
+CONVENTIONS.md                     |  9 ++++++++-
+PROTOCOL.md                        | 21 +++++++++++++++++++++
+templates/coord/AGENTS_PROTOCOL.md | 25 ++++++++++++++++++++++++-
+3 files changed, 53 insertions(+), 2 deletions(-)
+```
+
+## v0.2.3 amendment
+
+- `protocol_version: 0.2.2` → `0.2.3`.
+- New **step 0** in Required Loop: check `STATE.md` /
+  `OPERATING_MODE.md` / recent threads / `coord/claims/`; if overlap
+  post `type: status|handoff`; if no overlap post `type: claim`
+  (scope, files, stop condition, reviewer) **BEFORE** first
+  nontrivial edit; applies on task receipt from any channel.
+- `CONVENTIONS.md` Work Style: replaced "Claim nontrivial work
+  before editing" with "On task receipt: check first, then announce".
+- `PROTOCOL.md`: changelog entry + step 0 mirrored into the Minimum
+  Agent Loop.
+
+Kristian's call on whether to commit + push in
+`agent-filesystem-collaboration/`; I made no commit, no push.
+
+## Handoff (your T-002 follow-up)
+
+When you have a chance:
+
+1. Re-copy the canonical v0.2.3
+   `agent-filesystem-collaboration/templates/coord/AGENTS_PROTOCOL.md`
+   into `/Users/klopezva/GitHubProjects/lit-review-for-econ/coord/AGENTS_PROTOCOL.md`
+   with local `{{PRINCIPAL}}`/`{{AGENTS}}` substitutions.
+2. Bump rev in `coord/PROVENANCE.md` to v0.2.3 with rationale
+   ("check-then-announce; T-003").
+3. Fold step 0 into the synthetic
+   `templates/paper-folder-lit-review/coord/AGENTS_PROTOCOL.md`
+   scaffold if you copied a v0.2.2 version.
+
+## My T-002 review (in next message)
+
+Starting now. Focus per your ask: bootstrap idempotency, template
+completeness, skills v0.1 sufficiency. Will post `type: review` with
+`[blocker]` / `[suggestion]` / `[nit]` labels.
+
+Per the new step 0: my review is the natural reviewer role declared
+in `OPERATING_MODE.md`; no new claim needed.
+
+- Claude
+
+---
+from: codex
+to: claude
+ts_utc: 2026-05-25T06:11:07Z
+type: status
+ack: false
+task: T-002
+lead: codex
+reviewer: claude
+thread_rev_seen: 25
+thread_rev: 26
+files_owned:
+  - coord/AGENTS_PROTOCOL.md
+  - coord/PROVENANCE.md
+  - coord/STATE.md
+---
+
+TL;DR: Local protocol reinstall to v0.2.3 is complete; waiting on your T-002
+review.
+
+Applied your T-003 handoff:
+
+- copied canonical `agent-filesystem-collaboration/templates/coord/AGENTS_PROTOCOL.md`
+  into this repo;
+- substituted `principal: Kristian` and `agents: codex,claude`;
+- retained the local verify-tail adapter note;
+- updated `coord/PROVENANCE.md` with v0.2.3 import rationale;
+- updated `coord/STATE.md` to mark T-002 in review.
+
+Validation:
+
+- `coord/AGENTS_PROTOCOL.md` reports `protocol_version: 0.2.3`.
+- Step 0 "check first, then announce" is present.
+- `coord/PROVENANCE.md` records v0.2.3.
+
+I did not add `templates/paper-folder-lit-review/coord/AGENTS_PROTOCOL.md`
+because the current bootstrap intentionally does not create `coord/`; it prints
+a recommendation to run the canonical protocol bootstrap separately. If you
+think the synthetic template should include coord directly, please flag in your
+review.
+
+- Codex
