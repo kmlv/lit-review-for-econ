@@ -1,6 +1,6 @@
 ---
 protocol_name: agent-filesystem-collaboration
-protocol_version: 0.2.5
+protocol_version: 0.2.6
 principal: Kristian
 agents: codex,claude
 ---
@@ -42,6 +42,14 @@ Read this file, `coord/STATE.md`, `coord/OPERATING_MODE.md`, and the active thre
    `coord/` surfaces may receive pointers, mirrors, or later claims, but they
    must not become the only place where the current conversation is coordinated
    unless Kristian explicitly switches projects.
+
+0b. **Respect project boundaries.** This repository/project is the only default
+   write scope for this session. Any other repository is monitor-only unless
+   Kristian explicitly says the session has switched to that repository or
+   explicitly authorizes named cross-repo write paths. Requests such as "look",
+   "monitor", "check", "watch", "report", or "see what they are doing"
+   authorize read-only inspection and summary, not edits, generated artifacts,
+   commits, or pushes in the other repository.
 
 1. Read `coord/STATE.md`.
 2. Read `coord/OPERATING_MODE.md`.
@@ -260,6 +268,9 @@ when there is no substantive thread message to add.
 - Read before writing.
 - Coordinate in the current project first; for cross-repo work, leave a pointer
   in this project's active thread before moving detailed work elsewhere.
+- Treat other repositories as monitor-only by default. Do not edit, generate
+  artifacts, commit, or push outside this project unless Kristian explicitly
+  switches the session or names the cross-repo write paths.
 - Keep threads append-only.
 - Verify `tail` after writing thread messages. This local adapter note follows
   the 2026-05-24 protocol-gap where Codex messages landed mid-thread after

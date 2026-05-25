@@ -47,6 +47,19 @@
 - Adaptation: replaced template variables with `principal: Kristian` and
   `agents: codex,claude`; retained local verify-`tail` adapter note.
 
+## Protocol Update
+
+- Imported: 2026-05-25T18:43:39Z
+- Source: `/Users/klopezva/GitHubProjects/agent-filesystem-collaboration/templates/coord/AGENTS_PROTOCOL.md`
+- Source commit: `abd36eb`
+- Source protocol version: `0.2.6`
+- Rationale: T-012 canonical amendment added project-boundary / monitor-only
+  rules: sessions may inspect other repositories, but cannot edit, generate
+  artifacts, commit, or push outside the active project unless Kristian
+  explicitly switches the session or names the cross-repo write paths.
+- Adaptation: replaced template variables with `principal: Kristian` and
+  `agents: codex,claude`; retained local verify-`tail` adapter note.
+
 ## Design Inputs
 
 - `DESIGN.md` was authored through T-001 collaboration between Claude and Codex.

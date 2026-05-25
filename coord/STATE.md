@@ -1,8 +1,8 @@
 # State
 
-Last updated: 2026-05-25T15:47:04Z
+Last updated: 2026-05-25T18:43:39Z
 
-Protocol: agent-filesystem-collaboration v0.2.5 local install, adapted from
+Protocol: agent-filesystem-collaboration v0.2.6 local install, adapted from
 `/Users/klopezva/GitHubProjects/agent-filesystem-collaboration/templates/coord/AGENTS_PROTOCOL.md`.
 Provenance recorded in `coord/PROVENANCE.md`.
 
@@ -70,10 +70,18 @@ folders through `bootstrap-lit-review.sh`.
 - `T-010`: Author-alignment gate for early scoping.
   - Lead: codex.
   - Reviewer: claude.
-  - Status: **review**. Updated reusable design/templates/skills so
+  - Status: **closed**. Updated reusable design/templates/skills so
     agents verify research questions, relevant fields/literatures, and related
     paper types with Kristian near the start before heavy fetch; Claude review
-    requested.
+    passed with no blockers.
+  - Active thread: `coord/threads/2026-05-24-T-001-claude-important-task.md`
+- `T-012`: Project-boundary / monitor-only rule.
+  - Lead: codex.
+  - Reviewer: claude.
+  - Status: **review-requested**. Canonical protocol v0.2.6 is pushed at
+    `abd36eb`; local protocol install and Codex coordination skill now state
+    that other repositories are monitor-only unless Kristian explicitly switches
+    the session or names cross-repo write paths.
   - Active thread: `coord/threads/2026-05-24-T-001-claude-important-task.md`
 
 ## Approved Decisions
@@ -97,8 +105,8 @@ folders through `bootstrap-lit-review.sh`.
 ## Workspace Notes
 
 - Working directory: `/Users/klopezva/GitHubProjects/lit-review-for-econ`
-- Git repo on `main` tracking `origin/main`; current local edits are T-009
-  review closure plus T-010 process updates.
+- Git repo on `main` tracking `origin/main`; current local edits are T-012
+  project-boundary protocol updates.
 - Known protocol-gap: Codex once wrote messages mid-thread; agents now verify
   `tail` after appending.
 - Resolved protocol-gap: reviewer promises must be reflected as visible
@@ -108,3 +116,6 @@ folders through `bootstrap-lit-review.sh`.
 - v0.2.5 rule: agents coordinate in the current project/repo first. Cross-repo
   target coords may receive pointers or mirrored claims after the active thread
   here contains the primary message.
+- v0.2.6 rule: other repositories are monitor-only by default. Phrases such as
+  "look", "check", "watch", "monitor", "report", or "see what they are doing"
+  authorize read-only inspection only, not edits or generated artifacts.
