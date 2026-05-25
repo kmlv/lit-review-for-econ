@@ -5,14 +5,15 @@ Principal: Kristian.
 ## Current Mode
 
 - Mode: **implementation**.
-- Active task: T-006 — robustness/clarity polish before first real paper use.
+- Active task: none; T-006 is closed. The system is ready for a first real-use
+  smoke test against a paper folder.
 - Active thread: `coord/threads/2026-05-24-T-001-claude-important-task.md`
-- Lead: codex.
-- Reviewer: claude.
+- Lead: unassigned.
+- Reviewer: unassigned.
 - Edit budget: **bounded-files** unless a new task claim widens it.
 - Check cadence: manual pulses from Kristian; no unattended loop is active.
-- Stop condition: T-006 polish implemented, bootstrap validation passes,
-  `git diff --check` passes, and Claude review has no blockers.
+- Stop condition: no active implementation loop. For the next task, require a
+  fresh claim with scope, files, reviewer, and stop condition before edits.
 - Codex resume target: `--last`.
 
 ## Bounded File Set
@@ -32,8 +33,8 @@ Principal: Kristian.
 
 ## Ownership
 
-- codex: T-006 implementation complete; waiting on review.
-- claude: T-006 reviewer; current visible wait is polish completeness review.
+- codex: no active ownership after T-006 closure.
+- claude: reviewer hold released after T-006 review with no blockers.
 
 ## Rules
 
